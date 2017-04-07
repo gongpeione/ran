@@ -11,7 +11,7 @@ body {
   height: 100%;
   font-size: .14rem;
   font-weight: 300;
-  font-family: 'Josefin Slab', BlinkMacSystemFont , "Segoe UI" , Roboto , "Segoe UI" , "Helvetica Neue", "PingFang SC", "Noto Sans" , "Noto Sans CJK SC" , "Microsoft YaHei" , "微软雅黑" , sans-serif;
+  font-family: BlinkMacSystemFont , "Segoe UI" , Roboto , "Segoe UI" , "Helvetica Neue", "PingFang SC", "Noto Sans" , "Noto Sans CJK SC" , "Microsoft YaHei" , "微软雅黑" , sans-serif;
 }
 html {
   box-sizing: border-box;
@@ -30,6 +30,7 @@ input {
 .main-menu {
   display: flex;
   flex-direction: column;
+  font-family: 'Abril Fatface';
   .logo {
     padding: $gap-middle;
     background: $blue;
@@ -53,12 +54,18 @@ input {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: $gap-middle - .05 $gap-middle;
+      padding: $gap-small $gap-middle;
       width: 100%;
       @include borderBottom($white20);
       cursor: pointer;
       &:hover {
         background: $black20;
+      }
+      &.current {
+        background: $green;
+        span {
+          color: $white;
+        }
       }
     }
     img {
@@ -73,16 +80,18 @@ input {
   }
 }
 .list-area {
+  display: flex;
   width: 3rem;
+  flex-direction: column;
   .search {
-    padding: $gap-small + .05;
+    padding: $gap-middle;
     background: $white;
     @include borderBottom($gray);
     .search-bar {
-      height: .4rem;
+      height: .3rem;
       background: $gray;
       display: flex;
-      padding: $gap-small;
+      padding: $gap-tiny $gap-small;
       border-radius: .03rem;
     }
     img {
@@ -99,6 +108,7 @@ input {
     padding: .2rem;
     display: flex;
     align-items: center;
+    color: $gray-dark;
     @include borderBottom($gray);
     > span {
       margin-right: .05rem;
@@ -106,7 +116,7 @@ input {
     .dropdown {
       display: inline-block;
       background: $gray;
-      padding: .1rem;
+      padding: $gap-tiny $gap-small;
       border-radius: .03rem;
       flex: 1;
       color: $gray-dark;
@@ -116,6 +126,48 @@ input {
       .select {
         width: 100%;
       }
+    }
+  }
+  .posts {
+    overflow-y: auto;
+    flex: 1;
+    article {
+      display: flex;
+      color: $gray-dark;
+      @include borderBottom($gray);
+    }
+    .thumb {
+      width: .2rem;
+      height: 1rem;
+      background-size: cover;
+    }
+    h3 {
+      margin: 0 0 $gap-small 0;
+      @include ellipsis(100%);
+      a {
+        color: $dark;
+        font-size: .14rem;
+      }
+    }
+    a {
+      color: $gray-dark;
+      font-size: .12rem;
+      text-decoration: none;
+      &:hover {
+        color: $blue;
+      }
+    }
+    p {
+      font-size: .12rem;
+      display: none;
+    }
+    .content {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      height: 1rem;
+      width: calc(100% - .2rem);
+      padding: $gap-middle;
     }
   }
 }

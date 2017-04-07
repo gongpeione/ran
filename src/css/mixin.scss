@@ -2,3 +2,9 @@
 @mixin borderBottom($color) {
   border-bottom: .01rem solid $color;
 }
+@mixin ellipsis($width) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: $width;
+}
