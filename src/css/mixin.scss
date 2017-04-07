@@ -1,0 +1,4 @@
+@import "color";
+@mixin borderBottom($color) {
+  border-bottom: .01rem solid $color;
+}

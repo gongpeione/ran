@@ -1,3 +1,9 @@
-<?php
+<?php wp_head(); ?>
 
-require './index.html';
+<div class="main-menu"></div>
+
+<div class="list-area"></div>
+
+<div class="content"></div>
+
+<?php wp_footer(); ?>

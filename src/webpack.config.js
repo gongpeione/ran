@@ -19,22 +19,10 @@ module.exports = {
     output: {
         path: parentDir,
         publicPath: '',
-        filename: 'index.js',
-        chunckFileName: '[id].bundle.js'
+        filename: 'index.js'
     },
     module: {
-        // preLoaders: [
-        //     {
-        //         test: /\.js$/,
-        //         loaders: ['eslint'],
-        //         exclude: /node_modules/
-        //     }
-        // ],
         loaders: [
-            // {
-            //     test: /\.html$/,
-            //     loader: 'file?name=[name].[ext]'
-            // },
             {
                 test: /\.js$/,
                 loaders: ['babel-loader?presets[]=es2015,presets[]=stage-0&cacheDirectory'],
@@ -42,35 +30,31 @@ module.exports = {
             },
             {
                 test: /\.css$|\.scss$/,
-                loader: extract.extract('css!postcss!sass-loader')
-                // loaders: ['style', 'css?minimize&-autoprefixer', 'postcss']
+                loader: extract.extract('css-loader!postcss-loader!sass-loader')
             }
         ]
     },
-    plugins: [ commonsPlugin, extract ],
+    plugins: [ commonsPlugin, extract, new webpack.LoaderOptionsPlugin({
+	    // test: /\.xxx$/, // may apply this only for some modules
+	    options: {
+		    postcss: function () {
+			    return [
+				    autoprefixer({
+					    remove: false,
+					    browsers: ['ie >= 9', '> 1% in CN'],
+				    }),
+				    precss
+			    ];
+		    },
+	    }
+    })
+    ],
     // watch: true,
-
-    postcss: function () {
-        return [
-            autoprefixer({
-                remove: false,
-                browsers: ['ie >= 9', '> 1% in CN'],
-            }),
-            precss
-        ];
-    },
-    eslint: {
-        // configFile: path.resolve(__dirname, './.eslintrc'), 
-        failOnWarning: true, 
-        failOnError: true, 
-        cache: true, 
-    },
 
     devServer: {
         historyApiFallback: true,
         hot: false,
         inline: true,
-        progress: true,
         port: 2333
     },
     devtool: "#source-map",

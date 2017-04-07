@@ -1,0 +1,125 @@
+@import 'normalize';
+@import "color";
+@import "layout";
+@import "mixin";
+
+html {
+  height: 100%;
+  font-size: 100px;
+}
+body {
+  height: 100%;
+  font-size: .14rem;
+  font-weight: 300;
+  font-family: 'Josefin Slab', BlinkMacSystemFont , "Segoe UI" , Roboto , "Segoe UI" , "Helvetica Neue", "PingFang SC", "Noto Sans" , "Noto Sans CJK SC" , "Microsoft YaHei" , "微软雅黑" , sans-serif;
+}
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+input {
+  color: $gray-dark;
+}
+#ran {
+  display: flex;
+  height: 100%;
+}
+.main-menu {
+  display: flex;
+  flex-direction: column;
+  .logo {
+    padding: $gap-middle;
+    background: $blue;
+    font-size: 0;
+    text-align: center;
+    img {
+      width: .3rem;
+    }
+  }
+  nav {
+    flex: 1;
+    background: $dark;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: .7rem;
+    }
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: $gap-middle - .05 $gap-middle;
+      width: 100%;
+      @include borderBottom($white20);
+      cursor: pointer;
+      &:hover {
+        background: $black20;
+      }
+    }
+    img {
+      width: 100%;
+      height: auto;
+      margin-bottom: $gap-tiny;
+    }
+    span {
+      font-size: .12rem;
+      color: $white20;
+    }
+  }
+}
+.list-area {
+  width: 3rem;
+  .search {
+    padding: $gap-small + .05;
+    background: $white;
+    @include borderBottom($gray);
+    .search-bar {
+      height: .4rem;
+      background: $gray;
+      display: flex;
+      padding: $gap-small;
+      border-radius: .03rem;
+    }
+    img {
+      margin-right: .1rem;
+    }
+    input {
+      border: none;
+      background: none;
+      flex: 1;
+      outline: none;
+    }
+  }
+  .categroy {
+    padding: .2rem;
+    display: flex;
+    align-items: center;
+    @include borderBottom($gray);
+    > span {
+      margin-right: .05rem;
+    }
+    .dropdown {
+      display: inline-block;
+      background: $gray;
+      padding: .1rem;
+      border-radius: .03rem;
+      flex: 1;
+      color: $gray-dark;
+      ul {
+        display: none;
+      }
+      .select {
+        width: 100%;
+      }
+    }
+  }
+}
+.content-area {
+  background: $gray;
+  flex: 1;
+}
