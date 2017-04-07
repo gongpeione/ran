@@ -134,12 +134,21 @@ input {
     article {
       display: flex;
       color: $gray-dark;
+      flex-direction: row-reverse;
       @include borderBottom($gray);
+
+      &:hover {
+        .thumb {
+          opacity: 1;
+        }
+      }
     }
     .thumb {
       width: .2rem;
       height: 1rem;
       background-size: cover;
+      opacity: .2;
+      transition: opacity .2s ease-in-out;
     }
     h3 {
       margin: 0 0 $gap-small 0;
@@ -174,4 +183,64 @@ input {
 .content-area {
   background: $gray;
   flex: 1;
+  height: 100%;
+  overflow-y: auto;
+  article {
+    width: 90%;
+    max-width: 9rem;
+    margin: $gap-big auto;
+    background: $white;
+    border-radius: .03rem;
+    box-shadow: 0 .1rem .2rem #C4D3E6;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    padding: $gap-giant;
+    color: $dark;
+    @include borderBottom($gray);
+    img {
+      width: .6rem;
+      height: auto;
+      margin-right: $gap-small;
+    }
+    h1 {
+      font-size: .2rem;
+      margin: 0 0 $gap-tiny 0;
+    }
+    .meta {
+      font-size: .12rem;
+      color: $gray-dark;
+      & > *:not(:last-child)::after {
+        content: '/';
+        margin: 0 $gap-tiny;
+      }
+    }
+  }
+  .content {
+    padding: $gap-giant $gap-super;
+    line-height: 2;
+    color: $dark;
+    font-size: .16rem;
+
+    p {
+      margin: 0;
+    }
+    h2,
+    h3,
+    h4 {
+      margin-left: -.2rem;
+      &::before {
+        content: '#';
+        color: $blue;
+        margin-right: $gap-small;
+      }
+    }
+    pre {
+      background: $gray;
+      overflow-x: auto;
+      border-radius: .03rem;
+      padding: $gap-middle;
+    }
+  }
 }

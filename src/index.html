@@ -102,7 +102,60 @@
             </article>
         </div>
     </div>
-    <div class="content-area"></div>
+    <div class="content-area">
+
+        <article>
+            <header>
+                <img src="img/frontEnd.svg" alt="front-end">
+                <div class="title">
+                    <h1>论如何让HTTPS的黄色小三角消失——多说篇</h1>
+                    <div class="meta">
+                        <time>2017/04/07</time><span>5 Comments</span><span>Front-End</span>
+                    </div>
+                </div>
+            </header>
+            <div class="content">
+                <p>昨天Hostker开始可以给网站加上证书了，于是兴冲冲的跑去注册了一个证书给网站挂上。挂好之后刷新，看到网址左边出现了一个绿色小锁感觉略爽略爽。但是似乎是高兴的太早了。等网页加载完毕，那个萌萌哒的绿色小锁变成了灰色，旁边还多了个黄色小三角。这简直是#逼死强迫症系列#。。F12打开控制台一看，原来千错万错都是多说的错（不对。原来多说全系列地址都用的http。这是药丸阿0 0好在这些地址加上s之后也是能用的，于是决定对多说进行改造←  ←#麻麻我的强迫症有救了#</p>
+                <p>&nbsp;</p>
+                <h3>第一步</h3>
+                <p>首先将多说的embed.js文件下载到本地。传送门：http://static.duoshuo.com/embed.js</p>
+                <p>我的博客使用的是Wordpress，其他程序修改方法也类似，自己折腾一下就哈</p>
+                <p>进入插件编辑，选择多说，选择Wordpress.php文件，然后将这个文件的第591行的地址替换成自己本地地址。</p>
+                <p>例如</p>
+                <pre class="brush: xml; title: ; notranslate" title="">
+
+&lt;script type='text/javascript' src='//geeku.net/embed.js' charset='UTF-8' async='async'&gt;&lt;/script&gt;
+
+</pre>
+                <h3>第二步</h3>
+                <p>上面一步做完之后，就要对embed.js进行修改了。</p>
+                <p>下面的问题主要是头像的图片地址问题，多说的头像地址大多是调用的第三方的地址，例如新浪微博。而新浪微博是不支持https访问的。</p>
+                <p>我用的方法是本地中转一下。<br />
+                    例如(头像很小，用php直接输出应该没啥事吧_(:з」∠)_新喵不要打我)</p>
+                <pre class="brush: php; title: ; notranslate" title="">
+$src = $_GET['src'];
+if(@exif_imagetype($src)) {
+ header('Content-Type:image/png');
+ echo file_get_contents($src);
+ }
+ else
+ echo 'not img';
+</pre>
+                <p>然后在embed.js中搜索avatarUrl，然后将后面的代码替换成 然后在embed.js中搜索avatarUrl，然后将后面的代码替换成</p>
+                <pre class="brush: jscript; title: ; notranslate" title="">
+avatarUrl:function(e){    avatarUrl:function(e){
+ if(e.avatar_url)    if(e.avatar_url)
+ return 'https://domain-name/?src='+e.avatar_url;
+ else    else
+ return 'https://domain-name/imgssl/?src='+nt.data.default_avatar_url;
+}   }
+</pre>
+                <p>&nbsp;</p>
+                <h3>第三步</h3>
+                <p>最后一步是将多说的spirte.png的地址替换成https的，这步简单。直接在你的style.css中添加如下代码即可</p>
+            </div>
+        </article>
+    </div>
 </div>
 
 <script src="../commons.js"></script>

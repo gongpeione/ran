@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.1 (35376) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="50" cy="50" r="50"></circle>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="100" height="100" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <rect id="path-3" x="24" y="26" width="53" height="52"></rect>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="53" height="52" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard">
+            <use id="Oval-6" stroke="#F2F6FB" mask="url(#mask-2)" stroke-width="4" xlink:href="#path-1"></use>
+            <rect id="Rectangle-19" fill="#CEDAE9" x="24" y="21" width="53" height="57" rx="2"></rect>
+            <use id="Rectangle-20" stroke="#CEDAE9" mask="url(#mask-4)" fill="#212733" xlink:href="#path-3"></use>
+            <circle id="Oval-7" fill="#E84040" cx="27" cy="24" r="1"></circle>
+            <circle id="Oval-7" fill="#F9C040" cx="30" cy="24" r="1"></circle>
+            <circle id="Oval-7" fill="#64DB56" cx="33" cy="24" r="1"></circle>
+            <text id="&lt;html&gt;" opacity="0.8" font-family="PingFangSC-Medium, PingFang SC" font-size="8" font-weight="400" fill="#F7DF4B">
+                <tspan x="28" y="37">&lt;html&gt;</tspan>
+            </text>
+            <text id="&lt;link/&gt;" opacity="0.8" font-family="PingFangSC-Medium, PingFang SC" font-size="8" font-weight="400" fill="#60E67B">
+                <tspan x="33" y="49">&lt;link/&gt;</tspan>
+            </text>
+            <text id="&lt;script/&gt;" opacity="0.8" font-family="PingFangSC-Medium, PingFang SC" font-size="8" font-weight="400" fill="#60E57B">
+                <tspan x="33" y="59">&lt;script/&gt;</tspan>
+            </text>
+            <text id="&lt;/html&gt;" opacity="0.8" font-family="PingFangSC-Medium, PingFang SC" font-size="8" font-weight="400" fill="#F7DF4B">
+                <tspan x="28" y="72">&lt;/html&gt;</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
