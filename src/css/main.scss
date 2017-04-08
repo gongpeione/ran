@@ -177,6 +177,15 @@ input {
       height: 1rem;
       width: calc(100% - .2rem);
       padding: $gap-middle;
+      .category {
+        display: flex;
+        align-items: center;
+      }
+      img {
+        width: .3rem;
+        height: auto;
+        margin-right: $gap-small;
+      }
     }
   }
 }
@@ -222,6 +231,8 @@ input {
     line-height: 2;
     color: $dark;
     font-size: .16rem;
+    font-family: Raleway;
+    font-weight: 400;
 
     p {
       margin: 0;
@@ -230,6 +241,8 @@ input {
     h3,
     h4 {
       margin-left: -.2rem;
+      font-size: .18rem;
+      font-weight: 500;
       &::before {
         content: '#';
         color: $blue;
@@ -241,6 +254,26 @@ input {
       overflow-x: auto;
       border-radius: .03rem;
       padding: $gap-middle;
+    }
+    code {
+      background: $gray;
+      border-radius: .03rem;
+      padding: 0 $gap-small;
+      margin: 0 $gap-tiny;
+    }
+    a {
+      text-decoration: none;
+      color: $dark;
+      @include borderBottom(darken($gray, 10%));
+      &:hover {
+        color: $blue;
+        border-color: currentColor;
+      }
+    }
+    blockquote {
+      margin: 0;
+      padding-left: $gap-big;
+      border-left: .05rem solid $gray-dark;
     }
   }
 }
